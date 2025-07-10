@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Árvores Brasileiras</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #e0f7fa 0%, #fffde7 50%, #e3f2fd 100%);
+            margin: 0;
+            padding: 0;
+            color: #1b5e20;
+        }
+
+        header {
+            background: linear-gradient(90deg, #81d4fa 60%, #fff9c4 100%);
+            padding: 2rem;
+            text-align: center;
+            color: #01579b;
+            border-bottom: 4px solid #ffe082;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        main {
+            padding: 2rem;
+        }
+
+        section {
+            background: linear-gradient(120deg, #ffffffd0 80%, #fffde7cc 100%);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+            border-left: 8px solid #81d4fa;
+        }
+
+        section:nth-child(odd) {
+            border-left: 8px solid #ffe082;
+            background: linear-gradient(120deg, #fffde7cc 80%, #e3f2fdcc 100%);
+        }
+
+        h2 {
+            color: #388e3c;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        ul li {
+            background: linear-gradient(90deg, #f1f8e9 70%, #e3f2fd 100%);
+            padding: 0.7rem;
+            margin-bottom: 0.5rem;
+            border-left: 5px solid #aed581;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+
+        ul li:nth-child(even) {
+            background: linear-gradient(90deg, #fffde7 70%, #b3e5fc 100%);
+            border-left: 5px solid #ffe082;
+        }
+
+        ul li:hover {
+            background: #fff9c4;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background: linear-gradient(90deg, #c8e6c9 60%, #b3e5fc 100%);
+            color: #33691e;
+            border-top: 4px solid #81d4fa;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Árvore Brasileiras API - 🌳</h1>
+        <p>Conecte-se com a biodiversidade nacional através da tecnologia</p>
+    </header>
+
+    <main>
+        <section>
+            <h2>Sobre a API</h2>
+            <p>Essa API foi desenvolvida para gerenciar dados sobre árvores brasileiras, com foco em biomas, características, dados botânicos e curiosidades.</p>
+        </section>
+
+        <section>
+            <h2>Estrutura do Banco de Dados</h2>
+            <ul>
+                <li><strong>Especies:</strong> Informacões gerais sobre as espécies (nome, família, descrição).</li>
+                <li><strong>Biomas:</strong> Biomas brasileiros associados às espécies.</li>
+                <li><strong>Ocorrencias:</strong> Relação entre espécies e biomas.</li>
+                <li><strong>Caracteristicas:</strong> Dados como altura, diâmetro, tipo de folha e floração.</li>
+                <li><strong>Curiosidades:</strong> Fatos interessantes sobre cada espécie.</li>
+                <li><strong>DadosArvore:</strong> Informações técnicas como tempo de vida e densidade da madeira.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Recursos Disponíveis</h2>
+            <ul>
+                <li>GET /trees/listTrees</li>
+                <li>GET /trees/listTrees/&lt;id&gt;</li>
+                <li>POST /trees/create</li>
+                <li>POST /trees/bioma</li>
+                <li>POST /trees/caracteristica</li>
+                <li>POST /trees/curiosidade</li>
+                <li>POST /trees/dados</li>
+                <li>POST /trees/ocorrencia</li>
+                <li>PUT/PATCH /trees/update/&lt;id&gt;</li>
+                <li>DELETE /trees/delete/&lt;id&gt;</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 API Árvores Brasileiras. Todos os direitos reservados.</p>
+        <p>Desenvolvido com amor e dedicação para preservar nossa biodiversidade.</p>
+    </footer>
+</body>
