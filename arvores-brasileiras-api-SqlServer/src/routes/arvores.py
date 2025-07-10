@@ -87,7 +87,7 @@ def get_arvores_completa(especie_id: int) -> tuple:
 
         if resultados: return jsonify({'message': 'Nenhuma árvore encontrada para a espécie informada.'}), 404
         
-        return jsonify(resultados), 200 
+        return jsonify({'tree': resultados,}), 200 
         
     except pyodbc.Error as e: return jsonify({'error': 'Erro ao acessar o banco de dados', 'details': str(e)}), 500
     except Exception as e: return jsonify({'error': str(e)}), 500
