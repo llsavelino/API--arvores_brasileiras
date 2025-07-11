@@ -45,12 +45,13 @@ def get_arvores_completa(especie_id: int) -> tuple:
             e.EspecieID = ?
         """
         
-        with db_connection.get_cursor() as (cursor, conn): # Obtém o cursor e conexão do banco de dados            cursor.execute(query, especie_id)
+        with db_connection.get_cursor() as (cursor, conn):
+            cursor.execute(query, especie_id)
             rows = cursor.fetchall()
-            conn.commit()  # Garante que as alterações sejam salvas, se houver
-        if not rows: return jsonify({'message': f'Nenhuma árvore com id {especie_id} encontrada para a espécie informada.'}), 404
+
+        if not rows:
+            return jsonify({'message': f'Nenhuma árvore com id {especie_id} encontrada para a espécie informada.'}), 404
         
-        # Transformar os resultados em uma lista de dicionários
         resultados = []
         for row in rows:
             resultado = {
@@ -82,12 +83,12 @@ def get_arvores_completa(especie_id: int) -> tuple:
                     'DensidadeMadeira': float(row.DensidadeMadeira) if row.DensidadeMadeira else None
                 } if row.DadosID else None
             }
-            
             resultados.append(resultado)
 
-        if resultados: return jsonify({'message': 'Nenhuma árvore encontrada para a espécie informada.'}), 404
-        
-        return jsonify({'tree': resultados,}), 200 
-        
-    except pyodbc.Error as e: return jsonify({'error': 'Erro ao acessar o banco de dados', 'details': str(e)}), 500
-    except Exception as e: return jsonify({'error': str(e)}), 500
+        return jsonify({'tree': resultados}), 200
+
+    except pyodbc.Error as e:
+        print(f'[ERRO PYODBC]: {e}')
+        return jsonify({'error': 'Erro ao acessar o banco de dados', 'details': str(e)}), 500
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
