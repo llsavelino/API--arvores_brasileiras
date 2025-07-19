@@ -6,45 +6,30 @@ caracteristicas_bp = Blueprint('caracteristicas', __name__)
 caracteristicas_crud = BaseCRUD(caracteristicas_model)
 
 @caracteristicas_bp.route('/caracteristicas', methods=['GET'])
-def get_caracteristicas():
-    """GET /api/caracteristicas - Lista todas as características"""
-    return caracteristicas_crud.get_all()
-
+def get_caracteristicas() -> tuple: return caracteristicas_crud.get_all()
+"""GET /api/caracteristicas - Lista todas as características"""
 @caracteristicas_bp.route('/caracteristicas/<int:caracteristica_id>', methods=['GET'])
-def get_caracteristica(caracteristica_id):
-    """GET /api/caracteristicas/<id> - Obtém uma característica específica"""
-    return caracteristicas_crud.get_by_id(caracteristica_id)
-
+def get_caracteristica(caracteristica_id: int) -> tuple: return caracteristicas_crud.get_by_id(caracteristica_id)
+"""GET /api/caracteristicas/<id> - Obtém uma característica específica"""
 @caracteristicas_bp.route('/caracteristicas', methods=['POST'])
-def create_caracteristica():
-    """POST /api/caracteristicas - Cria uma nova característica"""
-    return caracteristicas_crud.create()
-
+def create_caracteristica() -> tuple: return caracteristicas_crud.create()
+"""POST /api/caracteristicas - Cria uma nova característica"""
 @caracteristicas_bp.route('/caracteristicas/<int:caracteristica_id>', methods=['PUT'])
-def update_caracteristica(caracteristica_id):
-    """PUT /api/caracteristicas/<id> - Atualiza completamente uma característica"""
-    return caracteristicas_crud.update(caracteristica_id)
-
+def update_caracteristica(caracteristica_id: int) -> tuple: return caracteristicas_crud.update(caracteristica_id)
+"""PUT /api/caracteristicas/<id> - Atualiza completamente uma característica"""
 @caracteristicas_bp.route('/caracteristicas/<int:caracteristica_id>', methods=['PATCH'])
-def partial_update_caracteristica(caracteristica_id):
-    """PATCH /api/caracteristicas/<id> - Atualiza parcialmente uma característica"""
-    return caracteristicas_crud.partial_update(caracteristica_id)
-
+def partial_update_caracteristica(caracteristica_id: int) -> tuple: return caracteristicas_crud.partial_update(caracteristica_id)
+"""PATCH /api/caracteristicas/<id> - Atualiza parcialmente uma característica"""
 @caracteristicas_bp.route('/caracteristicas/<int:caracteristica_id>', methods=['DELETE'])
-def delete_caracteristica(caracteristica_id):
-    """DELETE /api/caracteristicas/<id> - Remove uma característica"""
-    return caracteristicas_crud.delete(caracteristica_id)
-
+def delete_caracteristica(caracteristica_id: int) -> tuple: return caracteristicas_crud.delete(caracteristica_id)
+"""DELETE /api/caracteristicas/<id> - Remove uma característica"""
 @caracteristicas_bp.route('/caracteristicas', methods=['HEAD'])
-def head_caracteristicas():
-    """HEAD /api/caracteristicas - Retorna headers com contagem total"""
-    return caracteristicas_crud.head()
-
+def head_caracteristicas() -> tuple: return caracteristicas_crud.head()
+"""HEAD /api/caracteristicas - Retorna headers com contagem total"""
 @caracteristicas_bp.route('/caracteristicas/<int:caracteristica_id>', methods=['HEAD'])
-def head_caracteristica(caracteristica_id):
-    """HEAD /api/caracteristicas/<id> - Verifica se uma característica existe"""
-    return caracteristicas_crud.head(caracteristica_id)
-
+def head_caracteristica(caracteristica_id: int) -> tuple: return caracteristicas_crud.head(caracteristica_id)
+"""HEAD /api/caracteristicas/<id> - Verifica se uma característica existe"""
+    
 # Rotas auxiliares específicas para Caracteristicas
 @caracteristicas_bp.route('/caracteristicas/especie/<int:especie_id>', methods=['GET'])
 def get_caracteristicas_by_especie(especie_id: int) -> tuple:
